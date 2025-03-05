@@ -118,6 +118,7 @@ export const RESUME_DATA = {
     {
       company: "Teknovarik Inc.",
       country: "Philippines",
+      link: "#",
       badges: ["Node.js", "PHP" , "Laravel", "Vue.js", "IOT", "AWS", "Socket.IO", "Real-time applications"],
       title: "Lead Fullstack Developer",
       start: "Mar 2018",
@@ -145,6 +146,7 @@ export const RESUME_DATA = {
     {
       company: "Triune Electronic Systems Inc.",
       country: "Philippines",
+      link: "#",
       badges: ["Node.js", "PHP", "Laravel", "Vue.js", "IOT", "AWS", "Socket.IO", "Real-time applications"],
       title: "Software engineer",
       start: "2012",

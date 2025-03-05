@@ -1,9 +1,14 @@
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/ui/section";
-import { RESUME_DATA } from "@/data/resume-data";
 import { cn } from "@/lib/utils";
 
-type Skills = any;
+type SkillSet = string;
+interface Skill {
+  category: string;
+  skillSets: readonly SkillSet[];
+}
+
+type Skills = readonly Skill[];
 
 interface SkillsListProps {
   skills: Skills;
@@ -15,25 +20,25 @@ interface SkillsListProps {
  */
 function SkillsList({ skills, className }: SkillsListProps) {
   return (
-      <>
-        {skills.map((skill) => (
-          <>
-            <span>{skill.category}</span>
-            <ul
-              className={cn("flex list-none flex-wrap gap-1 p-0", className)}
-              aria-label="List of skills"
-            >
-              {skill.skillSets.map((skillSet) => (
-                <li key={skill}>
-                  <Badge className="print:text-[10px]" aria-label={`Skill: ${skillSet}`}>
-                    {skillSet}
-                  </Badge>
-                </li>
-              ))}
-            </ul>
-          </>
-        ))}
-      </>
+    <>
+      {skills.map((skill, index) => (
+        <div key={index}>
+          <span>{skill.category}</span>
+          <ul
+            className={cn("flex list-none flex-wrap gap-1 p-0", className)}
+            aria-label="List of skills"
+          >
+            {skill.skillSets.map((skillSet, index) => (
+              <li key={index}>
+                <Badge className="print:text-[10px]" aria-label={`Skill: ${skillSet}`}>
+                  {skillSet}
+                </Badge>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </>
   );
 }
 

@@ -59,7 +59,7 @@ function WorkPeriod({ start, end }: WorkPeriodProps) {
 
 interface CompanyLinkProps {
   company: WorkExperience["company"];
-  link: WorkExperience["link"];
+  link: string;
 }
 
 /**
