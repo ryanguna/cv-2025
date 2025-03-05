@@ -1,0 +1,58 @@
+import { Badge } from "@/components/ui/badge";
+import { Section } from "@/components/ui/section";
+import { RESUME_DATA } from "@/data/resume-data";
+import { cn } from "@/lib/utils";
+
+type Skills = any;
+
+interface SkillsListProps {
+  skills: Skills;
+  className?: string;
+}
+
+/**
+ * Renders a list of skills as badges
+ */
+function SkillsList({ skills, className }: SkillsListProps) {
+  return (
+      <>
+        {skills.map((skill) => (
+          <>
+            <span>{skill.category}</span>
+            <ul
+              className={cn("flex list-none flex-wrap gap-1 p-0", className)}
+              aria-label="List of skills"
+            >
+              {skill.skillSets.map((skillSet) => (
+                <li key={skill}>
+                  <Badge className="print:text-[10px]" aria-label={`Skill: ${skillSet}`}>
+                    {skillSet}
+                  </Badge>
+                </li>
+              ))}
+            </ul>
+          </>
+        ))}
+      </>
+  );
+}
+
+interface SkillsProps {
+  skills: Skills;
+  className?: string;
+}
+
+/**
+ * Skills section component
+ * Displays a list of professional skills as badges
+ */
+export function Skills({ skills, className }: SkillsProps) {
+  return (
+    <Section className={className}>
+      <h2 className="text-xl font-bold" id="skills-section">
+        Skills
+      </h2>
+      <SkillsList skills={skills} aria-labelledby="skills-section" />
+    </Section>
+  );
+}
